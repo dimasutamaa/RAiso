@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="HomeMasterPage.master.cs" Inherits="RAiso.Views.Home.HomeMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <%-- Navigation Bar Start --%>
+        <nav>
+            <div>
+                <a href="Home.aspx">RAiso</a>
+            </div>
+
+            <div>
+                <ul>
+                    <li>
+                        <asp:Button ID="NavBtnHome" OnClick="NavBtnHome_Click" runat="server" Text="Home" />
+                    </li>
+                    <li>
+                        <asp:Button ID="NavBtnCart" OnClick="NavBtnCart_Click" runat="server" Text="Cart" />
+                    </li>
+                    <li>
+                        <asp:Button ID="NavBtnTransaction" OnClick="NavBtnTransaction_Click" runat="server" Text="Transaction" />
+                    </li>
+                    <li>
+                        <asp:Button ID="NavBtnTransactionReport" OnClick="NavBtnTransactionReport_Click" runat="server" Text="Report" />
+                    </li>
+                    <li>
+                        <asp:Button ID="NavBtnUpdateProfile" OnClick="NavBtnUpdateProfile_Click" runat="server" Text="Update Profile" />
+                    </li>
+                    <li>
+                        <asp:Button ID="NavBtnLogout" OnClick="NavBtnLogout_Click" runat="server" Text="Logout" />
+                    </li>
+                    <li>
+                        <asp:Button ID="NavBtnLogin" OnClick="NavBtnLogin_Click" runat="server" Text="Login" />
+                    </li>
+                    <li>
+                        <asp:Button ID="NavBtnRegister" OnClick="NavBtnRegister_Click" runat="server" Text="Register" />
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <%-- Navigation Bar End --%>
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
