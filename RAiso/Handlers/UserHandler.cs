@@ -39,5 +39,10 @@ namespace RAiso.Handlers
         {
             return UserRepository.GetUserCredentials(username, password);
         }
+
+        public static MsUser GetUserId(int id)
+        {
+            return UserRepository.GetUserId(id);
+        }
     }
 }

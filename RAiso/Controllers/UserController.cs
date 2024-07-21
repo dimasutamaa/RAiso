@@ -90,5 +90,10 @@ namespace RAiso.Controllers
                 return "Success";
             }
         }
+
+        public static MsUser GetUserId(int id)
+        {
+            return UserHandler.GetUserId(id);
+        }
     }
 }

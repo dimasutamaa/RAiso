@@ -1,4 +1,5 @@
-﻿using RAiso.Model;
+﻿using RAiso.Controllers;
+using RAiso.Model;
 using RAiso.Repositories;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace RAiso.Views.Home
                 {
                     var id = Request.Cookies["user_cookie"].Value;
                     int userId = Convert.ToInt32(id);
-                    user = UserRepository.GetUserId(userId);
+                    user = UserController.GetUserId(userId);
                     Session["user"] = user;
                 }
                 else
