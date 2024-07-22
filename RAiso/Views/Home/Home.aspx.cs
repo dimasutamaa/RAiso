@@ -66,7 +66,12 @@ namespace RAiso.Views.Home
 
         protected void GVStationery_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            GridViewRow row = GVStationery.Rows[e.RowIndex];
+            string id = row.Cells[0].Text.ToString();
 
+            StationeryController.DeleteById(int.Parse(id));
+
+            BindStationeryData();
         }
 
         protected void GVStationery_SelectedIndexChanged(object sender, EventArgs e)

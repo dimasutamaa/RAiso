@@ -91,9 +91,61 @@ namespace RAiso.Controllers
             }
         }
 
-        public static MsUser GetUserId(int id)
+        public static MsUser GetUserById(int id)
         {
-            return UserHandler.GetUserId(id);
+            return UserHandler.GetUserById(id);
+        }
+
+        public static String UpdateProfile(int id, string username, string password, string gender, string phone, string address, DateTime dob)
+        {
+            if (String.IsNullOrEmpty(username))
+            {
+                return "Username must be filled";
+            }
+            else if (username.Length < 5 || username.Length > 50)
+            {
+                return "Username must be between 5 and 50 characters";
+            }
+            else if (String.IsNullOrEmpty(gender))
+            {
+                return "Gender must be selected";
+            }
+            else if (dob == DateTime.MinValue || DateTime.Now.AddYears(-1) < dob)
+            {
+                return "User must be at least 1 year old";
+            }
+            else if (String.IsNullOrEmpty(phone))
+            {
+                return "Phone number must be filled";
+            }
+            else if (phone.Any(char.IsLetter))
+            {
+                return "Phone number must be digits only";
+            }
+            else if (String.IsNullOrEmpty(address))
+            {
+                return "Address must be filled";
+            }
+            else if (String.IsNullOrEmpty(password))
+            {
+                return "Password must be filled";
+            }
+            else if (!password.Any(char.IsLetter) || !password.Any(char.IsDigit))
+            {
+                return "Password must be alphanumeric";
+            }
+            else
+            {
+                Boolean response = UserHandler.Update(id, username, password, gender, phone, address, dob);
+                if (response == true)
+                {
+                    return "Success";
+                }
+                else
+                {
+                    return "Username has already been taken!";
+                }
+            }
         }
     }
 }

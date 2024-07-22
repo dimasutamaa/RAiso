@@ -26,7 +26,7 @@ namespace RAiso.Views.Home
                     var userCookie = Request.Cookies["user_cookie"];
                     if (userCookie != null && int.TryParse(userCookie.Value, out int userId))
                     {
-                        user = UserController.GetUserId(userId);
+                        user = UserController.GetUserById(userId);
                         if (user != null)
                         {
                             Session["user"] = user;
@@ -112,7 +112,7 @@ namespace RAiso.Views.Home
 
         protected void NavBtnUpdateProfile_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Views/Home/UpdateProfile.aspx");
         }
 
         protected void NavBtnLogout_Click(object sender, EventArgs e)

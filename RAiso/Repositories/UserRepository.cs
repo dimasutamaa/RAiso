@@ -29,14 +29,24 @@ namespace RAiso.Repositories
             else return null;
         }
 
+        public static MsUser GetUserByName(string name)
+        {
+            return (from x in db.MsUsers where x.UserName.Equals(name) select x).FirstOrDefault();
+        }
+
         public static MsUser GetUserCredentials(string username, string password)
         {
             return (from x in db.MsUsers where x.UserName == username && x.UserPassword == password select x).FirstOrDefault();
         }
 
-        public static MsUser GetUserId(int id)
+        public static MsUser GetUserById(int id)
         {
             return (from x in db.MsUsers where x.UserID == id select x).FirstOrDefault();
+        }
+
+        public static void SaveChanges()
+        {
+            db.SaveChanges();
         }
     }
 }

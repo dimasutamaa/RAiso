@@ -1,5 +1,6 @@
 ﻿using RAiso.Handlers;
 using RAiso.Model;
+using RAiso.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -107,6 +108,11 @@ namespace RAiso.Controllers
                     return "Stationery name has already been taken!";
                 }
             }
+        }
+
+        public static void DeleteById(int id)
+        {
+            StationeryHandler.DeleteById(id);
         }
     }
 }

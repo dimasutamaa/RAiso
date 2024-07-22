@@ -40,5 +40,12 @@ namespace RAiso.Repositories
         {
             db.SaveChanges();
         }
+
+        public static void DeleteById(int id)
+        {
+            MsStationery stationery = FindById(id);
+            db.MsStationeries.Remove(stationery);
+            db.SaveChanges();
+        }
     }
 }

@@ -94,6 +94,7 @@
     <Content Include="Views\Home\Home.aspx" />
     <Content Include="Views\Home\InsertStationery.aspx" />
     <Content Include="Views\Home\StationeryDetails.aspx" />
+    <Content Include="Views\Home\UpdateProfile.aspx" />
     <Content Include="Views\Home\UpdateStationery.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -186,6 +187,13 @@
     </Compile>
     <Compile Include="Views\Home\StationeryDetails.aspx.designer.cs">
       <DependentUpon>StationeryDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\UpdateProfile.aspx.cs">
+      <DependentUpon>UpdateProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home\UpdateProfile.aspx.designer.cs">
+      <DependentUpon>UpdateProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Home\UpdateStationery.aspx.cs">
       <DependentUpon>UpdateStationery.aspx</DependentUpon>

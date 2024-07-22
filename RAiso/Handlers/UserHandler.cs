@@ -40,9 +40,31 @@ namespace RAiso.Handlers
             return UserRepository.GetUserCredentials(username, password);
         }
 
-        public static MsUser GetUserId(int id)
+        public static MsUser GetUserById(int id)
         {
-            return UserRepository.GetUserId(id);
+            return UserRepository.GetUserById(id);
+        }
+
+        public static Boolean Update(int id, string username, string password, string gender, string phone, string address, DateTime dob)
+        {
+            MsUser user = UserRepository.GetUserById(id);
+            MsUser checkUsername = UserRepository.GetUserByName(username);
+            if (checkUsername == null || checkUsername.UserID == user.UserID)
+            {
+                user.UserName = username;
+                user.UserPassword = password;
+                user.UserGender = gender;
+                user.UserPhone = phone;
+                user.UserAddress = address;
+                user.UserDOB = dob;
+                UserRepository.SaveChanges();
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

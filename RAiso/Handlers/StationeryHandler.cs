@@ -70,5 +70,10 @@ namespace RAiso.Handlers
                 return false;
             }
         }
+
+        public static void DeleteById(int id)
+        {
+            StationeryRepository.DeleteById(id);
+        }
     }
 }
