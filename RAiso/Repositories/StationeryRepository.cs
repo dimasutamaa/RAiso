@@ -30,5 +30,15 @@ namespace RAiso.Repositories
         {
             return (from x in db.MsStationeries select x).ToList();
         }
+
+        public static MsStationery FindById(int id)
+        {
+            return (from x in db.MsStationeries where x.StationeryID == id select x).FirstOrDefault();  
+        }
+
+        public static void SaveChanges()
+        {
+            db.SaveChanges();
+        }
     }
 }

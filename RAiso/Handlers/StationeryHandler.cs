@@ -46,5 +46,29 @@ namespace RAiso.Handlers
         {
             return StationeryRepository.GetAllStationery();
         }
+
+        public static MsStationery FindById(int id)
+        {
+            return StationeryRepository.FindById(id);
+        }
+
+        public static Boolean Update(int id, string name, int price)
+        {
+            MsStationery stationery = StationeryRepository.FindById(id);
+            MsStationery checkName = StationeryRepository.GetName(name);
+
+            if (checkName == null || checkName.StationeryID == stationery.StationeryID)
+            {
+                stationery.StationeryName = name;
+                stationery.StationeryPrice = price;
+                StationeryRepository.SaveChanges();
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -23,14 +23,27 @@ namespace RAiso.Views.Home
                 MsUser user;
                 if (Session["user"] == null)
                 {
-                    var id = Request.Cookies["user_cookie"].Value;
-                    int userId = Convert.ToInt32(id);
-                    user = UserController.GetUserId(userId);
-                    Session["user"] = user;
-                }
-                else
-                {
-                    user = (MsUser)Session["user"];
+                    var userCookie = Request.Cookies["user_cookie"];
+                    if (userCookie != null && int.TryParse(userCookie.Value, out int userId))
+                    {
+                        user = UserController.GetUserId(userId);
+                        if (user != null)
+                        {
+                            Session["user"] = user;
+                        }
+                        else
+                        {
+                            // Handle the case where the user is not found in the database
+                            NavBarGuest();
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        // Handle the case where the cookie value is not a valid integer
+                        NavBarGuest();
+                        return;
+                    }
                 }
             }
 
@@ -39,7 +52,6 @@ namespace RAiso.Views.Home
                 if (Session["user"] != null)
                 {
                     var user = (MsUser)Session["user"];
-
                     NavBarUser(user);
                 }
             }
