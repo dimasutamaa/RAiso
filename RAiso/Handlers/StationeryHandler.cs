@@ -28,7 +28,7 @@ namespace RAiso.Handlers
 
         public static Boolean Insert(int id, string name, int price)
         {
-            MsStationery checkName = StationeryRepository.GetName(name);
+            MsStationery checkName = StationeryRepository.FindByName(name);
 
             if (checkName != null)
             {
@@ -54,8 +54,8 @@ namespace RAiso.Handlers
 
         public static Boolean Update(int id, string name, int price)
         {
-            MsStationery stationery = StationeryRepository.FindById(id);
-            MsStationery checkName = StationeryRepository.GetName(name);
+            MsStationery stationery = FindById(id);
+            MsStationery checkName = StationeryRepository.FindByName(name);
 
             if (checkName == null || checkName.StationeryID == stationery.StationeryID)
             {

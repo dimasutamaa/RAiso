@@ -97,7 +97,7 @@ namespace RAiso.Views.Home
 
         protected void NavBtnCart_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Views/Home/Cart.aspx");
         }
 
         protected void NavBtnTransaction_Click(object sender, EventArgs e)

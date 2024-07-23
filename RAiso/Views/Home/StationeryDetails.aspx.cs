@@ -26,7 +26,26 @@ namespace RAiso.Views.Home
 
         protected void BtnAddtoCart_Click(object sender, EventArgs e)
         {
+            var user = (MsUser)Session["user"];
+            string id = Request.QueryString["id"];
 
+            MsStationery stationery = StationeryController.FindById(int.Parse(id));
+
+            int userId = user.UserID;
+            int stationeryId = stationery.StationeryID;
+            string quantity = TBQuantity.Text;
+
+            String response = CartController.AddToCart(userId, stationeryId, quantity);
+
+            if(response == "Success")
+            {
+                Response.Redirect("~/Views/Home/Home.aspx");
+            }
+            else
+            {
+                LblError.ForeColor = System.Drawing.Color.Red;
+                LblError.Text = response;
+            }
         }
     }
 }

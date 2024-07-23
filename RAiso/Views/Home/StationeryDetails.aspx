@@ -30,5 +30,8 @@
                   <%} 
               }%>
         </table>
+
+        <asp:Label ID="LblError" runat="server" Text=""></asp:Label>
+
     </div>
 </asp:Content>

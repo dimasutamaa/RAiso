@@ -120,12 +120,12 @@ warning 6002: The table/view 'C:\USERS\DIMAS\DOCUMENTS\CODING\VISUALSTUDIO\RAISO
           <EntitySet Name="MsStationery" EntityType="Self.MsStationery" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MsUser" EntityType="Self.MsUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransactionHeader" EntityType="Self.TransactionHeader" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Cart" EntityType="Self.Cart" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
+          <EntitySet Name="Cart" EntityType="Self.Cart" store:Type="Tables" Schema="dbo">
+            <!--<DefiningQuery>SELECT 
     [Cart].[UserID] AS [UserID], 
     [Cart].[StationeryID] AS [StationeryID], 
     [Cart].[Quantity] AS [Quantity]
-    FROM [dbo].[Cart] AS [Cart]</DefiningQuery>
+    FROM [dbo].[Cart] AS [Cart]</DefiningQuery>-->
           </EntitySet>
           <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 

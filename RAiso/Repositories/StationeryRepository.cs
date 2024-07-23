@@ -21,7 +21,7 @@ namespace RAiso.Repositories
             return db.MsStationeries.ToList().LastOrDefault();
         }
 
-        public static MsStationery GetName(string name)
+        public static MsStationery FindByName(string name)
         {
             return (from x in db.MsStationeries where x.StationeryName == name select x).FirstOrDefault();
         }
