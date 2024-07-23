@@ -15,8 +15,8 @@ namespace RAiso.Model
     public partial class TransactionDetail
     {
         public int TransactionID { get; set; }
-        public Nullable<int> StationeryID { get; set; }
-        public Nullable<int> Quantity { get; set; }
+        public int StationeryID { get; set; }
+        public int Quantity { get; set; }
     
         public virtual MsStationery MsStationery { get; set; }
         public virtual TransactionHeader TransactionHeader { get; set; }

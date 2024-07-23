@@ -81,8 +81,8 @@
     </Content>
     <Content Include="Model\DatabaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DatabaseModel.Context.cs</LastGenOutput>
       <DependentUpon>DatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>DatabaseModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\DatabaseModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

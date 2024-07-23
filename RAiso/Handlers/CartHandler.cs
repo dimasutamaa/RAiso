@@ -30,5 +30,31 @@ namespace RAiso.Handlers
         {
             return CartRepository.GetCarts(userId);
         }
+
+        public static Cart GetCart(int id)
+        {
+            return CartRepository.GetCart(id);
+        }
+
+        public static Boolean Update(int userId, int stationeryId, int qty)
+        {
+            Cart item = FindCartItemByUser(userId, stationeryId);
+
+            if(item != null)
+            {
+                item.Quantity = qty;
+                CartRepository.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static Cart FindCartItemByUser(int userId, int stationeryId)
+        {
+            return CartRepository.FindCartItemByUser(userId, stationeryId);
+        }
     }
 }

@@ -25,5 +25,15 @@ namespace RAiso.Repositories
             return (from x in db.Carts where x.UserID.Equals(userId) && 
                     x.StationeryID.Equals(stationeryId) select x).FirstOrDefault();
         }
+
+        public static Cart GetCart(int id)
+        {
+            return (from x in db.Carts where x.StationeryID == id select x).FirstOrDefault();
+        }
+
+        public static void SaveChanges()
+        {
+            db.SaveChanges();
+        }
     }
 }
