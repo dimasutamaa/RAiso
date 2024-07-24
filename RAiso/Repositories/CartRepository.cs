@@ -35,5 +35,11 @@ namespace RAiso.Repositories
         {
             db.SaveChanges();
         }
+
+        public static void RemoveItem(Cart item)
+        {
+            db.Carts.Remove(item);
+            db.SaveChanges();
+        }
     }
 }

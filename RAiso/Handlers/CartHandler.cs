@@ -51,5 +51,25 @@ namespace RAiso.Handlers
                 return false;
             }
         }
+
+        public static void DeleteCart(int id)
+        {
+            List<Cart> carts = CartRepository.GetCarts(id).ToList();
+
+            foreach (Cart item in carts)
+            {
+                CartRepository.RemoveItem(item);
+            }
+        }
+
+        public static void DeleteCartItem(int userId, int stationeryId)
+        {
+            Cart itemToRemove = CartRepository.FindCartItemByUser(userId, stationeryId);
+
+            if (itemToRemove != null)
+            {
+                CartRepository.RemoveItem(itemToRemove);
+            }
+        }
     }
 }

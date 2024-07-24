@@ -11,6 +11,8 @@ namespace RAiso.Views.Home
 {
     public partial class Cart : System.Web.UI.Page
     {
+        protected List<Model.Cart> carts = new List<Model.Cart>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -21,10 +23,9 @@ namespace RAiso.Views.Home
 
                     int loggedUser = user.UserID;
 
-                    List<Model.Cart> carts = CartController.GetCarts(loggedUser);
+                    carts = CartController.GetCarts(loggedUser);
 
-                    GVCart.DataSource = carts;
-                    GVCart.DataBind();
+                    BindCartData(carts);
                 }
                 else
                 {
@@ -33,9 +34,34 @@ namespace RAiso.Views.Home
             }
         }
 
+        protected void BtnCheckOut_Click(object sender, EventArgs e)
+        {
+            MsUser user = (MsUser)Session["user"];
+
+            TransactionController.CreateTransaction(user);
+
+            Response.Redirect("~/Views/Home/Home.aspx");
+        }
+
         protected void GVCart_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            MsUser user = (MsUser)Session["user"];
+            MsUser loggedUser = UserController.GetUserById(user.UserID);
+            int userId = loggedUser.UserID;
 
+            GridViewRow row = GVCart.Rows[e.RowIndex];
+            int stationeryId = int.Parse(row.Cells[3].Text);
+
+            CartController.DeleteCartItem(userId, stationeryId);
+
+            carts = CartController.GetCarts(userId);
+            BindCartData(carts);
+        }
+
+        protected void BindCartData(List<Model.Cart> cart)
+        {
+            GVCart.DataSource = cart;
+            GVCart.DataBind();
         }
     }
 }

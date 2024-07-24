@@ -78,5 +78,10 @@ namespace RAiso.Controllers
                 }
             }
         }
+
+        public static void DeleteCartItem(int userId, int stationeryId)
+        {
+            CartHandler.DeleteCartItem(userId, stationeryId);
+        }
     }
 }

@@ -103,12 +103,16 @@
   <ItemGroup>
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\StationeryController.cs" />
+    <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Factories\CartFactory.cs" />
     <Compile Include="Factories\StationeryFactory.cs" />
+    <Compile Include="Factories\TransDetailFactory.cs" />
+    <Compile Include="Factories\TransHeaderFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Handlers\CartHandler.cs" />
     <Compile Include="Handlers\StationeryHandler.cs" />
+    <Compile Include="Handlers\TransactionHandler.cs" />
     <Compile Include="Handlers\UserHandler.cs" />
     <Compile Include="Model\Cart.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
@@ -144,6 +148,7 @@
     <Compile Include="Repositories\CartRepository.cs" />
     <Compile Include="Repositories\DBSingleton.cs" />
     <Compile Include="Repositories\StationeryRepository.cs" />
+    <Compile Include="Repositories\TransactionRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Views\Account\AccountMasterPage.Master.cs">
       <DependentUpon>AccountMasterPage.Master</DependentUpon>
