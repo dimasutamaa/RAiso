@@ -25,31 +25,87 @@ namespace RAiso.Views.Home
                 else
                 {
                     BtnInsert.Visible = false;
-                    GVStationery.Columns[3].Visible = false;
+                    foreach (RepeaterItem item in RptStationery.Items)
+                    {
+                        LinkButton btnViewDetails = (LinkButton)item.FindControl("BtnViewDetails");
+                        LinkButton btnEdit = (LinkButton)item.FindControl("BtnEdit");
+                        LinkButton btnDelete = (LinkButton)item.FindControl("BtnDelete");
+
+                        if (btnViewDetails != null)
+                        {
+                            btnViewDetails.Visible = true;
+                        }
+                        if (btnEdit != null)
+                        {
+                            btnEdit.Visible = false;
+                        }
+                        if (btnDelete != null)
+                        {
+                            btnDelete.Visible = false;
+                        }
+                    }
                 }
             }
         }
 
         private void ShowAdminButton(MsUser user)
         {
-            if(user.UserRole == "Admin")
+            if (RptStationery != null)
             {
-                BtnInsert.Visible = true;
-                GVStationery.Columns[3].Visible = true;
-                GVStationery.Columns[4].Visible = false;
-            }
-            else
-            {
-                BtnInsert.Visible = false;
-                GVStationery.Columns[3].Visible = false;
-                GVStationery.Columns[4].Visible = true;
+                if (user.UserRole == "Admin")
+                {
+                    BtnInsert.Visible = true;
+                    foreach (RepeaterItem item in RptStationery.Items)
+                    {
+                        LinkButton btnViewDetails = (LinkButton)item.FindControl("BtnViewDetails");
+                        LinkButton btnEdit = (LinkButton)item.FindControl("BtnEdit");
+                        LinkButton btnDelete = (LinkButton)item.FindControl("BtnDelete");
+
+                        if (btnViewDetails != null)
+                        {
+                            btnViewDetails.Visible = true;
+                        }
+                        if (btnEdit != null)
+                        {
+                            btnEdit.Visible = true;
+                        }
+                        if (btnDelete != null)
+                        {
+                            btnDelete.Visible = true;
+                        }
+                    }
+                }
+                else
+                {
+                    BtnInsert.Visible = false;
+                    foreach (RepeaterItem item in RptStationery.Items)
+                    {
+                        LinkButton btnViewDetails = (LinkButton)item.FindControl("BtnViewDetails");
+                        LinkButton btnEdit = (LinkButton)item.FindControl("BtnEdit");
+                        LinkButton btnDelete = (LinkButton)item.FindControl("BtnDelete");
+
+                        if (btnViewDetails != null)
+                        {
+                            btnViewDetails.Visible = true;
+                        }
+                        if (btnEdit != null)
+                        {
+                            btnEdit.Visible = false;
+                        }
+                        if (btnDelete != null)
+                        {
+                            btnDelete.Visible = false;
+                        }
+                    }
+                }
             }
         }
 
         protected void BindStationeryData()
         {
-            GVStationery.DataSource = StationeryController.GetAllStationery();
-            GVStationery.DataBind();
+            List<MsStationery> stationery = StationeryController.GetAllStationery();
+            RptStationery.DataSource = stationery;
+            RptStationery.DataBind();
         }
 
         protected void BtnInsert_Click(object sender, EventArgs e)
@@ -57,28 +113,26 @@ namespace RAiso.Views.Home
             Response.Redirect("~/Views/Home/InsertStationery.aspx");
         }
 
-        protected void GVStationery_RowEditing(object sender, GridViewEditEventArgs e)
+        protected void RptStationery_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            GridViewRow row = GVStationery.Rows[e.NewEditIndex];
-            string id = row.Cells[0].Text.ToString();
-            Response.Redirect("~/Views/Home/UpdateStationery.aspx?Id=" + id);
-        }
+            if (e.CommandName == "ViewDetails")
+            {
+                string id = e.CommandArgument.ToString();
+                Response.Redirect("~/Views/Home/StationeryDetails.aspx?Id=" + id);
+            }
+            else if (e.CommandName == "Edit")
+            {
+                string id = e.CommandArgument.ToString();
+                Response.Redirect("~/Views/Home/UpdateStationery.aspx?Id=" + id);
+            }
+            else if (e.CommandName == "Delete")
+            {
+                string id = e.CommandArgument.ToString();
 
-        protected void GVStationery_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            GridViewRow row = GVStationery.Rows[e.RowIndex];
-            string id = row.Cells[0].Text.ToString();
+                StationeryController.DeleteById(int.Parse(id));
 
-            StationeryController.DeleteById(int.Parse(id));
-
-            BindStationeryData();
-        }
-
-        protected void GVStationery_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GridViewRow row = GVStationery.SelectedRow;
-            string id = row.Cells[0].Text.ToString();
-            Response.Redirect("~/Views/Home/StationeryDetails.aspx?Id=" + id);
+                BindStationeryData();
+            }
         }
     }
 }

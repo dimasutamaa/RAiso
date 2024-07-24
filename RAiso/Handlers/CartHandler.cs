@@ -38,7 +38,7 @@ namespace RAiso.Handlers
 
         public static Boolean Update(int userId, int stationeryId, int qty)
         {
-            Cart item = FindCartItemByUser(userId, stationeryId);
+            Cart item = CartRepository.FindCartItemByUser(userId, stationeryId);
 
             if(item != null)
             {
@@ -50,11 +50,6 @@ namespace RAiso.Handlers
             {
                 return false;
             }
-        }
-
-        public static Cart FindCartItemByUser(int userId, int stationeryId)
-        {
-            return CartRepository.FindCartItemByUser(userId, stationeryId);
         }
     }
 }

@@ -78,10 +78,5 @@ namespace RAiso.Controllers
                 }
             }
         }
-
-        public static Cart FindCartItemByUser(int userId, int stationeryId)
-        {
-            return CartHandler.FindCartItemByUser(userId, stationeryId);
-        }
     }
 }

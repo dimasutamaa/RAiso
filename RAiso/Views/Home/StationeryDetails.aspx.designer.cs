@@ -42,15 +42,6 @@ namespace RAiso.Views.Home
         protected global::System.Web.UI.WebControls.TextBox TBQuantity;
 
         /// <summary>
-        /// BtnAddtoCart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAddtoCart;
-
-        /// <summary>
         /// LblError control.
         /// </summary>
         /// <remarks>
@@ -58,5 +49,14 @@ namespace RAiso.Views.Home
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblError;
+
+        /// <summary>
+        /// BtnAddtoCart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAddtoCart;
     }
 }
