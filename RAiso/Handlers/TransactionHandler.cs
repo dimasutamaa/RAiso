@@ -26,9 +26,9 @@ namespace RAiso.Handlers
             }
         }
 
-        public static List<TransactionHeader> GetTransactionsById(int id)
+        public static List<TransactionHeader> GetTransactionsByUser(int id)
         {
-            return TransactionRepository.GetTransactionsById(id);
+            return TransactionRepository.GetTransactionsByUser(id);
         }
 
         public static void CreateNewOrder(int id, int userId, DateTime date)
@@ -45,6 +45,11 @@ namespace RAiso.Handlers
         public static TransactionHeader FindById(int id)
         {
             return TransactionRepository.FindById(id);
+        }
+
+        public static List<TransactionHeader> GetTransactions()
+        {
+            return TransactionRepository.GetTransactions();
         }
     }
 }

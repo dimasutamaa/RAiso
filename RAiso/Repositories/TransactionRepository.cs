@@ -10,15 +10,14 @@ namespace RAiso.Repositories
     {
         private static LocalDatabaseEntities db = DBSingleton.GetInstance();
 
-        public static List<TransactionHeader> GetTransactionsById(int id)
+        public static List<TransactionHeader> GetTransactionsByUser(int id)
         {
-            return (from TransactionHeader in db.TransactionHeaders where TransactionHeader.UserID.Equals(id) select TransactionHeader).ToList();
+            return (from x in db.TransactionHeaders where x.UserID.Equals(id) select x).ToList();
         }
 
         public static TransactionHeader FindById(int id)
         {
-            return (from TransactionHeader in db.TransactionHeaders
-                    where TransactionHeader.TransactionID == id select TransactionHeader).FirstOrDefault();
+            return (from x in db.TransactionHeaders where x.TransactionID == id select x).FirstOrDefault();
         }
 
         public static TransactionHeader GetLastTransaction()
@@ -39,6 +38,11 @@ namespace RAiso.Repositories
                 db.TransactionDetails.Add(detail);
             }
             db.SaveChanges();
+        }
+
+        public static List<TransactionHeader> GetTransactions()
+        {
+            return db.TransactionHeaders.ToList();
         }
     }
 }

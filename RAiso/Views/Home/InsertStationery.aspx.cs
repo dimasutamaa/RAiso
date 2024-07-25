@@ -17,8 +17,6 @@ namespace RAiso.Views.Home
             {
                 if (Session["user"] != null)
                 {
-                    MsUser user = (MsUser)Session["user"];
-
                     BindStationeryData();
                 }
                 else

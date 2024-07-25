@@ -95,6 +95,9 @@
     <Content Include="Views\Home\Home.aspx" />
     <Content Include="Views\Home\InsertStationery.aspx" />
     <Content Include="Views\Home\StationeryDetails.aspx" />
+    <Content Include="Views\Home\TransactionDetails.aspx" />
+    <Content Include="Views\Home\TransactionHistory.aspx" />
+    <Content Include="Views\Home\TransactionReport.aspx" />
     <Content Include="Views\Home\UpdateCart.aspx" />
     <Content Include="Views\Home\UpdateProfile.aspx" />
     <Content Include="Views\Home\UpdateStationery.aspx" />
@@ -205,6 +208,27 @@
     </Compile>
     <Compile Include="Views\Home\StationeryDetails.aspx.designer.cs">
       <DependentUpon>StationeryDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\TransactionDetails.aspx.cs">
+      <DependentUpon>TransactionDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home\TransactionDetails.aspx.designer.cs">
+      <DependentUpon>TransactionDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\TransactionHistory.aspx.cs">
+      <DependentUpon>TransactionHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home\TransactionHistory.aspx.designer.cs">
+      <DependentUpon>TransactionHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\TransactionReport.aspx.cs">
+      <DependentUpon>TransactionReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home\TransactionReport.aspx.designer.cs">
+      <DependentUpon>TransactionReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Home\UpdateCart.aspx.cs">
       <DependentUpon>UpdateCart.aspx</DependentUpon>

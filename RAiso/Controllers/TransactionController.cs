@@ -33,5 +33,20 @@ namespace RAiso.Controllers
 
             CartHandler.DeleteCart(userId);
         }
+
+        public static List<TransactionHeader> GetTransactionsByUser(int id)
+        {
+            return TransactionHandler.GetTransactionsByUser(id);
+        }
+
+        public static TransactionHeader FindById(int id)
+        {
+            return TransactionHandler.FindById(id);
+        }
+
+        public static List<TransactionHeader> GetTransactions()
+        {
+            return TransactionHandler.GetTransactions();
+        }
     }
 }

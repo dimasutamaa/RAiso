@@ -102,12 +102,12 @@ namespace RAiso.Views.Home
 
         protected void NavBtnTransaction_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Views/Home/TransactionHistory.aspx");
         }
 
         protected void NavBtnTransactionReport_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Views/Home/TransactionReport.aspx");
         }
 
         protected void NavBtnUpdateProfile_Click(object sender, EventArgs e)
