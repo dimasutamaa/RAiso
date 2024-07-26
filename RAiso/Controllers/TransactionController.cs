@@ -48,5 +48,10 @@ namespace RAiso.Controllers
         {
             return TransactionHandler.GetTransactions();
         }
+
+        public static TransactionHeader CheckTransaction(int id)
+        {
+            return TransactionHandler.CheckTransaction(id);
+        }
     }
 }

@@ -18,8 +18,9 @@ namespace RAiso.Views.Home
                 if (Session["user"] != null)
                 {
                     string id = Request.QueryString["id"];
+                    MsUser user = (MsUser)Session["user"];
 
-                    Model.Cart item = CartController.GetCart(int.Parse(id));
+                    Model.Cart item = CartController.GetCart(user.UserID ,int.Parse(id));
                     MsStationery stationery = StationeryController.FindById(int.Parse(id));
 
                     TBStationeryName.Text = stationery.StationeryName;

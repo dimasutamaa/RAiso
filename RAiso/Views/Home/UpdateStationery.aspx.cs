@@ -19,10 +19,17 @@ namespace RAiso.Views.Home
                 {
                     string id = Request.QueryString["id"];
 
-                    MsStationery stationery = StationeryController.FindById(int.Parse(id));
+                    MsStationery stationery = StationeryController.CheckStationery(int.Parse(id));
 
-                    TBStationeryName.Text = stationery.StationeryName;
-                    TBPrice.Text = stationery.StationeryPrice.ToString();
+                    if (stationery != null)
+                    {
+                        TBStationeryName.Text = stationery.StationeryName;
+                        TBPrice.Text = stationery.StationeryPrice.ToString();
+                    }
+                    else
+                    {
+                        Response.Redirect("~/Views/Home/Home.aspx");
+                    }
                 }
                 else
                 {

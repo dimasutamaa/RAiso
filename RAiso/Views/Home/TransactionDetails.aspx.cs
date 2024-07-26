@@ -21,8 +21,26 @@ namespace RAiso.Views.Home
                 if (Session["user"] != null)
                 {
                     string id = Request.QueryString["id"];
+                    MsUser user = (MsUser)Session["user"];
 
-                    transaction = TransactionController.FindById(int.Parse(id));
+                    transaction = TransactionController.CheckTransaction(int.Parse(id));
+
+                    if (user.UserRole == "Admin")
+                    {
+                        if (transaction != null)
+                        {
+                            transaction = TransactionController.FindById(int.Parse(id));
+                        }
+                        else
+                        {
+                            Response.Redirect("~/Views/Home/TransactionReport.aspx");
+
+                        }
+                    }
+                    else if (transaction == null || transaction.MsUser.UserID != user.UserID)
+                    {
+                        Response.Redirect("~/Views/Home/TransactionHistory.aspx");
+                    }
                 }
                 else
                 {

@@ -45,9 +45,9 @@ namespace RAiso.Controllers
             return CartHandler.GetCarts(userId);
         }
 
-        public static Cart GetCart(int id)
+        public static Cart GetCart(int id, int stationeryId)
         {
-            return CartHandler.GetCart(id);
+            return CartHandler.GetCart(id, stationeryId);
         }
 
         public static String Update(int userId, int stationeryId, string qty)

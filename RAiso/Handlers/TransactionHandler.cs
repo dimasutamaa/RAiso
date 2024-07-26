@@ -51,5 +51,13 @@ namespace RAiso.Handlers
         {
             return TransactionRepository.GetTransactions();
         }
+
+        public static TransactionHeader CheckTransaction(int id)
+        {
+            TransactionHeader x = FindById(id);
+
+            if (x != null) return x;
+            else return null;
+        }
     }
 }

@@ -75,5 +75,13 @@ namespace RAiso.Handlers
         {
             StationeryRepository.DeleteById(id);
         }
+
+        public static MsStationery CheckStationery(int id)
+        {
+            MsStationery x = FindById(id);
+
+            if (x != null) return x;
+            else return null;
+        }
     }
 }

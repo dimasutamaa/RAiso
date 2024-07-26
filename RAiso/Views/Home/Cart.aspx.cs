@@ -50,9 +50,9 @@ namespace RAiso.Views.Home
             int userId = loggedUser.UserID;
 
             GridViewRow row = GVCart.Rows[e.RowIndex];
-            int stationeryId = int.Parse(row.Cells[3].Text);
+            HiddenField stationeryId = (HiddenField)row.FindControl("StationeryID");
 
-            CartController.DeleteCartItem(userId, stationeryId);
+            CartController.DeleteCartItem(userId, int.Parse(stationeryId.Value));
 
             carts = CartController.GetCarts(userId);
             BindCartData(carts);

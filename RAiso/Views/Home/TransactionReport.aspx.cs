@@ -21,9 +21,6 @@ namespace RAiso.Views.Home
                 if (Session["user"] != null)
                 {
                     transactions = TransactionController.GetTransactions();
-
-                    //GVTransaction.DataSource = transactions;
-                    //GVTransaction.DataBind();
                 }
                 else
                 {

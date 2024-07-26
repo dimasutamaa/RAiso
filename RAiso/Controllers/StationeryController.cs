@@ -114,5 +114,10 @@ namespace RAiso.Controllers
         {
             StationeryHandler.DeleteById(id);
         }
+
+        public static MsStationery CheckStationery(int id)
+        {
+            return StationeryHandler.CheckStationery(id);
+        }
     }
 }
